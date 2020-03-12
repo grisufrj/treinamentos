@@ -1,0 +1,4 @@
+Agora que vcs ja conhecem as principais vulnerabilidades web e como aplicacoes web funcionam
+Voces terao que desenvolver um desafio Web ( desafio de CTF ) que explorem o funcionamento/vulnerabilidade web aprendida no treinamento.
+
+- Modo de entrega: Repositorio privado no github ( compartilhem com brenocss) 

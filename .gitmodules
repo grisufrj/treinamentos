@@ -1,0 +1,3 @@
+[submodule "2023/pwn"]
+	path = 2023/pwn
+	url = https://github.com/es0j/gris-treinamentos-pwn-2021.git

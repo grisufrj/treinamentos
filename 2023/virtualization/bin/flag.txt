@@ -1,1 +1,1 @@
-CTF-BR{nice}
+CTF-BR{fakeflag}

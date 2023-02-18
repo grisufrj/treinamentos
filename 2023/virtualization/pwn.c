@@ -1,16 +1,12 @@
 #include <stdio.h>
+#include <unistd.h>
+//Run with ./pwn qemu-aarch64 -g 1234 ./bin/pwn $(echo -e "AAAAAAAAAA")
+//Debug with gdb-multiarch --ex="set arch aarch64" --ex="target remote localhost:1234" --ex="break main" ./pwn
 
-//qemu-aarch64 -L /usr/aarch64-linux-gnu ./pwn
-//gdb-multiarch --ex="set arch aarch64" --ex="set sysroot /usr/aarch64-linux-gnu/" --ex="target remote localhost:1234" --ex="break main" ./pwn
-int ez(){
+int (*sc)();
 
-}
-
-int main(){
-  char buf[16];
-  setvbuf(stdout, NULL, _IONBF, 0);
-  setvbuf(stdin, NULL, _IONBF, 0);
-
-  printf("Qual o seu nome?\n");
-  fgets(buf,128,stdin);
+int main(int argc,char**argv){
+  printf("Executing your shellcode\n");
+  int (*ret)() = (int(*)())argv[1];
+  ret();
 }

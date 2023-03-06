@@ -1,7 +1,7 @@
-obj-m += hello.o
+obj-m += pwnme.o
 all:
-	make -C /lib/modules/5.4.0-137-generic/build/ M=$(PWD) modules
-	mv hello.ko ../initramfs.cpio/
+	make -C ~/linux-6.1.2 M=$(PWD) modules
+	cp pwnme.ko ../initramfs/
 	
 clean:
-	make -C /lib/modules/5.4.0-137-generic/build/ M=$(PWD) clean
+	make -C ~/linux-6.1.2 M=$(PWD) clean

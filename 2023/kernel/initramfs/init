@@ -1,0 +1,49 @@
+#!/bin/busybox sh
+
+# Thanks jootamam
+# https://jootamam.net/howto-initramfs-image.htm
+
+#Create all the symlinks to /bin/busybox
+/bin/busybox --install -s /bin/
+/bin/busybox --install -s /sbin/
+mkdir /usr
+ln -s /bin /usr/bin
+ln -s /sbin /usr/sbin
+
+#Mount things needed by this script
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+
+#Disable kernel messages from popping onto the screen
+#echo 0 > /proc/sys/kernel/printk
+
+#Clear the screen
+clear
+
+#Create device nodes
+#mknod /dev/null c 1 3
+#mknod /dev/tty c 5 0
+#mdev -s
+
+
+
+
+#challenge stuff
+
+
+
+/bin/busybox --install -s
+
+stty raw -echo
+
+echo 0 > /proc/sys/kernel/kptr_restrict
+echo 0 > /proc/sys/kernel/dmesg_restrict
+chmod 444 /proc/kallsyms
+
+insmod /pwnme.ko
+
+cat /proc/kallsyms | grep commit_cred
+cat /proc/kallsyms | grep prepare_kernel
+
+
+setuidgid 1000 sh;

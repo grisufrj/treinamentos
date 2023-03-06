@@ -1,4 +1,4 @@
-# echo 'hxp{FLAG}' > flag.txt && docker build -t kernel-rop . && docker run --cap-add=SYS_ADMIN --security-opt apparmor=unconfined -ti -p 27499:1024 kernel-rop
+#docker build -t kernel-baby . && docker run --cap-add=SYS_ADMIN --security-opt apparmor=unconfined -ti -p 27499:1024 kernel-rop
 
 FROM debian:buster
 
